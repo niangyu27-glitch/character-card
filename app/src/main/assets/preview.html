@@ -333,6 +333,15 @@ textarea{
 
 
 <section class="section">
+<div class="title">社会地位</div>
+<div class="body">
+<div id="social_status"></div>
+<button class="add" onclick="addList('social_status')">＋ 添加社会地位</button>
+</div>
+</section>
+
+
+<section class="section">
 <div class="title">外貌</div>
 <div class="body grid">
 
@@ -569,6 +578,7 @@ function addPair(id){
 
 [
     'identity',
+    'social_status',
     'build',
     'lifestyle',
     'work',
@@ -685,6 +695,8 @@ background_story:
   中年(35-至今): ${v('middle')}
   现状: ${v('current')}
 
+${list('social_status','social_status')}
+
 appearance:
   hair: ${v('hair')}
   eyes: ${v('eyes')}
@@ -744,7 +756,6 @@ function saveData(){
 
     const data = {};
 
-    /* 普通输入框与文本框 */
     document.querySelectorAll('input, textarea').forEach(el => {
 
         if (el.id) {
@@ -754,9 +765,9 @@ function saveData(){
     });
 
 
-    /* 动态单字段列表 */
     [
         'identity',
+        'social_status',
         'build',
         'lifestyle',
         'work',
@@ -777,7 +788,6 @@ function saveData(){
     });
 
 
-    /* 动态双字段列表 */
     [
         'core_traits',
         'romantic_traits'
@@ -832,7 +842,6 @@ function loadData(){
             JSON.parse(raw);
 
 
-        /* 普通输入框 */
         document.querySelectorAll(
             'input, textarea'
         ).forEach(el => {
@@ -853,9 +862,9 @@ function loadData(){
         });
 
 
-        /* 单字段动态列表 */
         [
             'identity',
+            'social_status',
             'build',
             'lifestyle',
             'work',
@@ -893,7 +902,6 @@ function loadData(){
         });
 
 
-        /* 双字段动态列表 */
         [
             'core_traits',
             'romantic_traits'
@@ -1004,16 +1012,13 @@ function preview(){
         old.remove();
     }
 
-
     saveData();
-
 
     const overlay =
         document.createElement('div');
 
     overlay.id =
         'preview_overlay';
-
 
     overlay.innerHTML = `
         <div class="preview_box">
@@ -1037,11 +1042,9 @@ function preview(){
         </div>
     `;
 
-
     document.body.appendChild(
         overlay
     );
-
 
     overlay.querySelector(
         '.preview_content'
