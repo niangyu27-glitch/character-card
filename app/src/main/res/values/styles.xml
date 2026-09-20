@@ -10,9 +10,9 @@
 
         <item name="android:windowLightStatusBar">true</item>
 
-        <item name="android:statusBarColor">#EEEE E8</item>
+        <item name="android:statusBarColor">#EEEEE8</item>
 
-        <item name="android:navigationBarColor">#EEEE E8</item>
+        <item name="android:navigationBarColor">#EEEEE8</item>
 
     </style>
 
