@@ -4,13 +4,10 @@ on:
   workflow_dispatch:
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: 获取项目
         uses: actions/checkout@v4
 
@@ -25,6 +22,8 @@ jobs:
 
       - name: 安装 Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
 
       - name: 编译 APK
         run: gradle assembleDebug
@@ -34,3 +33,4 @@ jobs:
         with:
           name: 角色卡编辑器
           path: app/build/outputs/apk/debug/app-debug.apk
+    
