@@ -1,4 +1,3 @@
-```yaml
 name: 自动打包 APK
 
 on:
@@ -21,9 +20,8 @@ jobs:
       - name: 安装 Android 环境
         uses: android-actions/setup-android@v3
 
-      - name: 安装 Android SDK 35
-        run: |
-          sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      - name: 安装 Android SDK
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
       - name: 安装 Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -38,4 +36,3 @@ jobs:
         with:
           name: 角色卡编辑器
           path: app/build/outputs/apk/debug/app-debug.apk
-```
