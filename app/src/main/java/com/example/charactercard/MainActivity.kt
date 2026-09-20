@@ -1,3 +1,4 @@
+```kotlin
 package com.example.charactercard
 
 import android.annotation.SuppressLint
@@ -30,7 +31,8 @@ class MainActivity : AppCompatActivity() {
             "Android"
         )
 
-        webView.loadUrl("file:///android_asset/index.html")
+        // 实际文件名是 preview.html
+        webView.loadUrl("file:///android_asset/preview.html")
 
         setContentView(webView)
     }
@@ -40,7 +42,6 @@ class AndroidBridge(private val context: Context) {
 
     @JavascriptInterface
     fun copyText(text: String) {
-
         val clipboard =
             context.getSystemService(Context.CLIPBOARD_SERVICE)
                     as ClipboardManager
@@ -59,3 +60,4 @@ class AndroidBridge(private val context: Context) {
         ).show()
     }
 }
+```
