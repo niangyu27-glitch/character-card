@@ -1,0 +1,36 @@
+name: 自动打包 APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: 获取项目
+        uses: actions/checkout@v4
+
+      - name: 安装 Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: 安装 Android 环境
+        uses: android-actions/setup-android@v3
+
+      - name: 安装 Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: 编译 APK
+        run: gradle assembleDebug
+
+      - name: 保存 APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: 角色卡编辑器
+          path: app/build/outputs/apk/debug/app-debug.apk
