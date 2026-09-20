@@ -110,6 +110,7 @@ textarea{
 
 .del{
     width:36px;
+    flex:0 0 36px;
     border:0;
     border-radius:8px;
     background:#e9e9e1;
@@ -125,6 +126,76 @@ textarea{
     border-radius:9px;
     padding:8px 12px
 }
+
+
+/* =========================
+   自定义大条目
+   ========================= */
+
+.main_entry{
+    margin-top:12px;
+    padding:12px;
+    border:1px solid #d9dad0;
+    border-radius:12px;
+    background:#fffef9
+}
+
+.main_entry_header{
+    display:flex;
+    align-items:center;
+    gap:7px
+}
+
+.main_entry_name{
+    flex:1;
+    min-width:0;
+    font-weight:600
+}
+
+.main_entry_move{
+    width:34px;
+    height:36px;
+    flex:0 0 34px;
+    padding:0;
+    border:0;
+    border-radius:8px;
+    background:#e9e9e1;
+    color:#69705f;
+    font-size:16px;
+    line-height:36px;
+    text-align:center
+}
+
+.main_entry_move:active{
+    background:#dddeda
+}
+
+.main_entry_delete{
+    height:36px;
+    padding:0 11px;
+    border:0;
+    border-radius:8px;
+    background:#e9e9e1;
+    color:#777
+}
+
+.main_entry_list{
+    margin-top:10px
+}
+
+.add_main_entry{
+    margin-top:10px;
+    border:1px dashed #aeb5a5;
+    background:transparent;
+    color:#69735f;
+    border-radius:9px;
+    padding:9px 13px
+}
+
+
+/* =========================
+   底栏
+   ========================= */
 
 .bar{
     position:fixed;
@@ -160,13 +231,13 @@ textarea{
     inset:0;
     z-index:9999;
     background:#eeeee8;
-    overflow:auto;
+    overflow:auto
 }
 
 .preview_box{
     min-height:100%;
     display:flex;
-    flex-direction:column;
+    flex-direction:column
 }
 
 .preview_header{
@@ -179,7 +250,7 @@ textarea{
     padding:16px 18px;
     background:#f8f8f3;
     border-bottom:1px solid #d9dad0;
-    font-weight:600;
+    font-weight:600
 }
 
 .preview_close{
@@ -192,7 +263,7 @@ textarea{
     color:#555;
     font-size:25px;
     line-height:36px;
-    text-align:center;
+    text-align:center
 }
 
 .preview_content{
@@ -201,7 +272,7 @@ textarea{
     white-space:pre-wrap;
     word-break:break-word;
     font:14px/1.8 monospace;
-    color:#464940;
+    color:#464940
 }
 
 
@@ -221,7 +292,7 @@ textarea{
     }
 
     .bar{
-        bottom:10px;
+        bottom:10px
     }
 
     .bar button{
@@ -230,7 +301,20 @@ textarea{
 
     .preview_content{
         padding:16px;
-        font-size:13px;
+        font-size:13px
+    }
+
+    .main_entry_header{
+        flex-wrap:wrap
+    }
+
+    .main_entry_name{
+        flex-basis:100%
+    }
+
+    .main_entry_move,
+    .main_entry_delete{
+        margin-top:4px
     }
 }
 </style>
@@ -294,7 +378,7 @@ textarea{
 <div class="title">身份</div>
 <div class="body">
 <div id="identity"></div>
-<button class="add" onclick="addList('identity')">＋ 添加身份</button>
+<button class="add" onclick="addList('identity')">＋ 添加</button>
 </div>
 </section>
 
@@ -336,7 +420,7 @@ textarea{
 <div class="title">社会地位</div>
 <div class="body">
 <div id="social_status"></div>
-<button class="add" onclick="addList('social_status')">＋ 添加社会地位</button>
+<button class="add" onclick="addList('social_status')">＋ 添加</button>
 </div>
 </section>
 
@@ -368,7 +452,7 @@ textarea{
 <div class="field" style="grid-column:1/-1">
 <label>Build</label>
 <div id="build"></div>
-<button class="add" onclick="addList('build')">＋ 添加体型特征</button>
+<button class="add" onclick="addList('build')">＋ 添加</button>
 </div>
 
 </div>
@@ -409,11 +493,11 @@ textarea{
 
 <div class="sub">核心特质</div>
 <div id="core_traits"></div>
-<button class="add" onclick="addPair('core_traits')">＋ 添加特质</button>
+<button class="add" onclick="addPair('core_traits')">＋ 添加</button>
 
 <div class="sub">恋爱特质</div>
 <div id="romantic_traits"></div>
-<button class="add" onclick="addPair('romantic_traits')">＋ 添加特质</button>
+<button class="add" onclick="addPair('romantic_traits')">＋ 添加</button>
 
 </div>
 </section>
@@ -445,11 +529,11 @@ textarea{
 
 <div class="sub">目标</div>
 <div id="goals"></div>
-<button class="add" onclick="addList('goals')">＋ 添加目标</button>
+<button class="add" onclick="addList('goals')">＋ 添加</button>
 
 <div class="sub">弱点</div>
 <div id="weakness"></div>
-<button class="add" onclick="addList('weakness')">＋ 添加弱点</button>
+<button class="add" onclick="addList('weakness')">＋ 添加</button>
 
 <div class="sub">喜欢</div>
 <div id="likes"></div>
@@ -469,15 +553,15 @@ textarea{
 
 <div class="sub">工作</div>
 <div id="skill_work"></div>
-<button class="add" onclick="addList('skill_work')">＋ 添加工作技能</button>
+<button class="add" onclick="addList('skill_work')">＋ 添加</button>
 
 <div class="sub">生活</div>
 <div id="skill_life"></div>
-<button class="add" onclick="addList('skill_life')">＋ 添加生活技能</button>
+<button class="add" onclick="addList('skill_life')">＋ 添加</button>
 
 <div class="sub">爱好</div>
 <div id="skill_hobby"></div>
-<button class="add" onclick="addList('skill_hobby')">＋ 添加爱好技能</button>
+<button class="add" onclick="addList('skill_hobby')">＋ 添加</button>
 
 </div>
 </section>
@@ -521,6 +605,29 @@ textarea{
 </div>
 </section>
 
+
+<!-- =========================
+     自定义大条目
+     ========================= -->
+
+<section class="section">
+<div class="title">自定义条目</div>
+
+<div class="body">
+
+<div id="custom_entries"></div>
+
+<button
+    class="add_main_entry"
+    onclick="addMainEntry()"
+>
+    ＋ 增加条目
+</button>
+
+</div>
+</section>
+
+
 </main>
 </div>
 
@@ -534,15 +641,19 @@ textarea{
 <script>
 
 /* =========================================================
-   动态列表
+   固定列表
    ========================================================= */
 
 function addList(id){
 
-    let b = document.getElementById(id);
-    let r = document.createElement('div');
+    const b =
+        document.getElementById(id);
 
-    r.className = 'row';
+    const r =
+        document.createElement('div');
+
+    r.className =
+        'row';
 
     r.innerHTML =
         '<input placeholder="填写内容">' +
@@ -556,10 +667,14 @@ function addList(id){
 
 function addPair(id){
 
-    let b = document.getElementById(id);
-    let r = document.createElement('div');
+    const b =
+        document.getElementById(id);
 
-    r.className = 'row';
+    const r =
+        document.createElement('div');
+
+    r.className =
+        'row';
 
     r.innerHTML =
         '<input placeholder="特质">' +
@@ -573,7 +688,277 @@ function addPair(id){
 
 
 /* =========================================================
-   初始化动态项目
+   自定义大条目
+   ========================================================= */
+
+function addMainEntry(
+    savedName = '',
+    savedItems = []
+){
+
+    const container =
+        document.getElementById(
+            'custom_entries'
+        );
+
+    const entry =
+        document.createElement('div');
+
+    entry.className =
+        'main_entry';
+
+    entry.innerHTML = `
+
+        <div class="main_entry_header">
+
+            <input
+                class="main_entry_name"
+                placeholder="大条目名称，例如 character"
+                value=""
+            >
+
+            <button
+                class="main_entry_move"
+                type="button"
+                title="上移"
+            >
+                ↑
+            </button>
+
+            <button
+                class="main_entry_move"
+                type="button"
+                title="下移"
+            >
+                ↓
+            </button>
+
+            <button
+                class="main_entry_delete"
+                type="button"
+            >
+                删除
+            </button>
+
+        </div>
+
+        <div class="main_entry_list"></div>
+
+        <button
+            class="add"
+            type="button"
+        >
+            ＋ 添加
+        </button>
+    `;
+
+
+    const nameInput =
+        entry.querySelector(
+            '.main_entry_name'
+        );
+
+
+    const moveButtons =
+        entry.querySelectorAll(
+            '.main_entry_move'
+        );
+
+
+    const deleteButton =
+        entry.querySelector(
+            '.main_entry_delete'
+        );
+
+
+    const listBox =
+        entry.querySelector(
+            '.main_entry_list'
+        );
+
+
+    const addButton =
+        entry.querySelector(
+            '.add'
+        );
+
+
+    nameInput.value =
+        savedName || '';
+
+
+    /* 上移 */
+
+    moveButtons[0].onclick =
+        function(){
+
+            const previous =
+                entry.previousElementSibling;
+
+            if(previous){
+
+                container.insertBefore(
+                    entry,
+                    previous
+                );
+
+                saveData();
+
+            }
+
+        };
+
+
+    /* 下移 */
+
+    moveButtons[1].onclick =
+        function(){
+
+            const next =
+                entry.nextElementSibling;
+
+            if(next){
+
+                container.insertBefore(
+                    next,
+                    entry
+                );
+
+                saveData();
+
+            }
+
+        };
+
+
+    /* 删除 */
+
+    deleteButton.onclick =
+        function(){
+
+            entry.remove();
+
+            saveData();
+
+        };
+
+
+    /* 添加子条目 */
+
+    addButton.onclick =
+        function(){
+
+            addMainItem(
+                listBox
+            );
+
+            saveData();
+
+        };
+
+
+    container.appendChild(
+        entry
+    );
+
+
+    /* 恢复已有内容 */
+
+    if(
+        Array.isArray(savedItems) &&
+        savedItems.length
+    ){
+
+        savedItems.forEach(
+            item => {
+
+                addMainItem(
+                    listBox,
+                    item
+                );
+
+            }
+        );
+
+    }else{
+
+        addMainItem(
+            listBox
+        );
+
+    }
+
+
+    nameInput.addEventListener(
+        'input',
+        saveData
+    );
+
+
+    saveData();
+
+}
+
+
+function addMainItem(
+    container,
+    value = ''
+){
+
+    const row =
+        document.createElement(
+            'div'
+        );
+
+    row.className =
+        'row';
+
+    row.innerHTML =
+        '<input placeholder="填写内容">' +
+        '<button class="del" type="button">×</button>';
+
+
+    const input =
+        row.querySelector(
+            'input'
+        );
+
+
+    const deleteButton =
+        row.querySelector(
+            '.del'
+        );
+
+
+    input.value =
+        value || '';
+
+
+    deleteButton.onclick =
+        function(){
+
+            row.remove();
+
+            saveData();
+
+        };
+
+
+    container.appendChild(
+        row
+    );
+
+
+    input.addEventListener(
+        'input',
+        saveData
+    );
+
+}
+
+
+/* =========================================================
+   初始化固定项目
    ========================================================= */
 
 [
@@ -590,86 +975,243 @@ function addPair(id){
     'skill_life',
     'skill_hobby',
     'habits'
-].forEach(addList);
+].forEach(
+    id => addList(id)
+);
 
 
 [
     'core_traits',
     'romantic_traits'
-].forEach(addPair);
+].forEach(
+    id => addPair(id)
+);
 
 
 /* =========================================================
    数据读取
    ========================================================= */
 
-const v = id =>
-    document.getElementById(id).value.trim();
+const v =
+    id =>
+        document
+            .getElementById(id)
+            .value
+            .trim();
 
 
-const ls = id =>
-    [...document.querySelectorAll('#' + id + ' input')]
-        .map(x => x.value.trim())
+const ls =
+    id =>
+        [
+            ...document.querySelectorAll(
+                '#' + id + ' input'
+            )
+        ]
+        .map(
+            x => x.value.trim()
+        )
         .filter(Boolean);
 
 
-const ps = id =>
-    [...document.querySelectorAll('#' + id + ' .row')]
-        .map(r =>
-            [...r.querySelectorAll('input')]
-                .map(x => x.value.trim())
+const ps =
+    id =>
+        [
+            ...document.querySelectorAll(
+                '#' + id + ' .row'
+            )
+        ]
+        .map(
+            r =>
+                [
+                    ...r.querySelectorAll(
+                        'input'
+                    )
+                ]
+                .map(
+                    x => x.value.trim()
+                )
         )
-        .filter(x => x[0] || x[1]);
+        .filter(
+            x => x[0] || x[1]
+        );
 
 
 /* =========================================================
-   YAML 字符串处理
+   YAML 字符串
    ========================================================= */
 
 function q(s){
 
     return '"' +
         String(s)
-            .replaceAll('\\', '\\\\')
-            .replaceAll('"', '\\"') +
+            .replaceAll(
+                '\\',
+                '\\\\'
+            )
+            .replaceAll(
+                '"',
+                '\\"'
+            ) +
         '"';
 
 }
 
 
-/* =========================================================
-   列表生成
-   ========================================================= */
+function list(
+    n,
+    id,
+    ind = ''
+){
 
-function list(n, id, ind = ''){
-
-    let a = ls(id);
+    const a =
+        ls(id);
 
     return a.length
         ? n + ':\n' +
-          a.map(x => ind + '  - ' + x).join('\n')
+          a
+            .map(
+                x =>
+                    ind +
+                    '  - ' +
+                    x
+            )
+            .join('\n')
+        : n + ':';
+
+}
+
+
+function pair(
+    n,
+    id,
+    ind = ''
+){
+
+    const a =
+        ps(id);
+
+    return a.length
+        ? n + ':\n' +
+          a
+            .map(
+                x =>
+                    ind +
+                    '  - ' +
+                    x[0] +
+                    ': ' +
+                    q(
+                        x[1] || ''
+                    )
+            )
+            .join('\n')
         : n + ':';
 
 }
 
 
 /* =========================================================
-   双字段生成
+   自定义大条目
    ========================================================= */
 
-function pair(n, id, ind = ''){
+function customEntries(){
 
-    let a = ps(id);
+    const entries =
+        [
+            ...document.querySelectorAll(
+                '#custom_entries .main_entry'
+            )
+        ];
 
-    return a.length
-        ? n + ':\n' +
-          a.map(x =>
-              ind + '  - ' +
-              x[0] +
-              ': ' +
-              q(x[1] || '')
-          ).join('\n')
-        : n + ':';
+
+    return entries
+        .map(
+            entry => {
+
+                const name =
+                    entry
+                        .querySelector(
+                            '.main_entry_name'
+                        )
+                        .value
+                        .trim();
+
+
+                const items =
+                    [
+                        ...entry.querySelectorAll(
+                            '.main_entry_list input'
+                        )
+                    ]
+                    .map(
+                        input =>
+                            input.value.trim()
+                    )
+                    .filter(
+                        Boolean
+                    );
+
+
+                return {
+                    name,
+                    items
+                };
+
+            }
+        )
+        .filter(
+            entry =>
+                entry.name ||
+                entry.items.length
+        );
+
+}
+
+
+function customEntriesYAML(){
+
+    const entries =
+        customEntries();
+
+
+    if(
+        !entries.length
+    ){
+
+        return '';
+
+    }
+
+
+    return entries
+        .map(
+            entry => {
+
+                if(
+                    entry.items.length
+                ){
+
+                    return (
+                        entry.name +
+                        ':\n' +
+                        entry.items
+                            .map(
+                                item =>
+                                    '  - ' +
+                                    item
+                            )
+                            .join('\n')
+                    );
+
+                }
+
+                return (
+                    entry.name +
+                    ':'
+                );
+
+            }
+        )
+        .join('\n\n');
 
 }
 
@@ -680,7 +1222,11 @@ function pair(n, id, ind = ''){
 
 function gen(){
 
-return `char_name: ${v('char_name')}
+    const custom =
+        customEntriesYAML();
+
+
+    return `char_name: ${v('char_name')}
 Chinese name: ${v('chinese_name')}
 Nickname: ${v('nickname')}
 age: ${v('age')}
@@ -740,7 +1286,7 @@ NSFW_information:
     sexual_role: ${v('role')}
 ${list('    sexual_habits','habits')}
   Kinks: ${v('kinks')}
-  Limits: ${v('limits')}`;
+  Limits: ${v('limits')}${custom ? '\n\n' + custom : ''}`;
 
 }
 
@@ -749,20 +1295,31 @@ ${list('    sexual_habits','habits')}
    自动保存
    ========================================================= */
 
-const SAVE_KEY = 'character_card_editor_data_v1';
+const SAVE_KEY =
+    'character_card_editor_data_v1';
 
 
 function saveData(){
 
     const data = {};
 
-    document.querySelectorAll('input, textarea').forEach(el => {
 
-        if (el.id) {
-            data[el.id] = el.value;
-        }
+    document
+        .querySelectorAll(
+            'input, textarea'
+        )
+        .forEach(
+            el => {
 
-    });
+                if(el.id){
+
+                    data[el.id] =
+                        el.value;
+
+                }
+
+            }
+        );
 
 
     [
@@ -779,38 +1336,67 @@ function saveData(){
         'skill_life',
         'skill_hobby',
         'habits'
-    ].forEach(id => {
+    ].forEach(
+        id => {
 
-        data[id] = [
-            ...document.querySelectorAll('#' + id + ' input')
-        ].map(input => input.value);
+            data[id] =
+                [
+                    ...document.querySelectorAll(
+                        '#' + id + ' input'
+                    )
+                ]
+                .map(
+                    input =>
+                        input.value
+                );
 
-    });
+        }
+    );
 
 
     [
         'core_traits',
         'romantic_traits'
-    ].forEach(id => {
+    ].forEach(
+        id => {
 
-        data[id] = [
-            ...document.querySelectorAll('#' + id + ' .row')
-        ].map(row =>
-            [...row.querySelectorAll('input')]
-                .map(input => input.value)
-        );
+            data[id] =
+                [
+                    ...document.querySelectorAll(
+                        '#' + id + ' .row'
+                    )
+                ]
+                .map(
+                    row =>
+                        [
+                            ...row.querySelectorAll(
+                                'input'
+                            )
+                        ]
+                        .map(
+                            input =>
+                                input.value
+                        )
+                );
 
-    });
+        }
+    );
 
 
-    try {
+    data.custom_entries =
+        customEntries();
+
+
+    try{
 
         localStorage.setItem(
             SAVE_KEY,
-            JSON.stringify(data)
+            JSON.stringify(
+                data
+            )
         );
 
-    } catch (e) {
+    }catch(e){
 
         console.error(
             '角色卡数据保存失败:',
@@ -829,37 +1415,50 @@ function saveData(){
 function loadData(){
 
     const raw =
-        localStorage.getItem(SAVE_KEY);
+        localStorage.getItem(
+            SAVE_KEY
+        );
 
-    if (!raw) {
+
+    if(!raw){
+
         return;
+
     }
 
 
-    try {
+    try{
 
         const data =
-            JSON.parse(raw);
+            JSON.parse(
+                raw
+            );
 
 
-        document.querySelectorAll(
-            'input, textarea'
-        ).forEach(el => {
+        document
+            .querySelectorAll(
+                'input, textarea'
+            )
+            .forEach(
+                el => {
 
-            if (
-                el.id &&
-                Object.prototype.hasOwnProperty.call(
-                    data,
-                    el.id
-                ) &&
-                typeof data[el.id] === 'string'
-            ) {
+                    if(
+                        el.id &&
+                        Object.prototype.hasOwnProperty.call(
+                            data,
+                            el.id
+                        ) &&
+                        typeof data[el.id] ===
+                            'string'
+                    ){
 
-                el.value = data[el.id];
+                        el.value =
+                            data[el.id];
 
-            }
+                    }
 
-        });
+                }
+            );
 
 
         [
@@ -876,70 +1475,153 @@ function loadData(){
             'skill_life',
             'skill_hobby',
             'habits'
-        ].forEach(id => {
+        ].forEach(
+            id => {
 
-            if (!Array.isArray(data[id])) {
-                return;
+                if(
+                    !Array.isArray(
+                        data[id]
+                    )
+                ){
+
+                    return;
+
+                }
+
+
+                const box =
+                    document.getElementById(
+                        id
+                    );
+
+
+                box.innerHTML =
+                    '';
+
+
+                data[id].forEach(
+                    value => {
+
+                        addList(id);
+
+
+                        const inputs =
+                            box.querySelectorAll(
+                                'input'
+                            );
+
+
+                        inputs[
+                            inputs.length - 1
+                        ].value =
+                            value;
+
+                    }
+                );
+
             }
-
-            const box =
-                document.getElementById(id);
-
-            box.innerHTML = '';
-
-            data[id].forEach(value => {
-
-                addList(id);
-
-                const inputs =
-                    box.querySelectorAll('input');
-
-                inputs[inputs.length - 1].value =
-                    value;
-
-            });
-
-        });
+        );
 
 
         [
             'core_traits',
             'romantic_traits'
-        ].forEach(id => {
+        ].forEach(
+            id => {
 
-            if (!Array.isArray(data[id])) {
-                return;
+                if(
+                    !Array.isArray(
+                        data[id]
+                    )
+                ){
+
+                    return;
+
+                }
+
+
+                const box =
+                    document.getElementById(
+                        id
+                    );
+
+
+                box.innerHTML =
+                    '';
+
+
+                data[id].forEach(
+                    pair => {
+
+                        addPair(id);
+
+
+                        const rows =
+                            box.querySelectorAll(
+                                '.row'
+                            );
+
+
+                        const row =
+                            rows[
+                                rows.length - 1
+                            ];
+
+
+                        const inputs =
+                            row.querySelectorAll(
+                                'input'
+                            );
+
+
+                        inputs[0].value =
+                            pair[0] || '';
+
+
+                        inputs[1].value =
+                            pair[1] || '';
+
+                    }
+                );
+
             }
+        );
 
-            const box =
-                document.getElementById(id);
 
-            box.innerHTML = '';
+        const customContainer =
+            document.getElementById(
+                'custom_entries'
+            );
 
-            data[id].forEach(pair => {
 
-                addPair(id);
+        customContainer.innerHTML =
+            '';
 
-                const rows =
-                    box.querySelectorAll('.row');
 
-                const row =
-                    rows[rows.length - 1];
+        if(
+            Array.isArray(
+                data.custom_entries
+            )
+        ){
 
-                const inputs =
-                    row.querySelectorAll('input');
+            data.custom_entries.forEach(
+                entry => {
 
-                inputs[0].value =
-                    pair[0] || '';
+                    addMainEntry(
+                        entry.name || '',
+                        Array.isArray(
+                            entry.items
+                        )
+                            ? entry.items
+                            : []
+                    );
 
-                inputs[1].value =
-                    pair[1] || '';
+                }
+            );
 
-            });
+        }
 
-        });
-
-    } catch (e) {
+    }catch(e){
 
         console.error(
             '角色卡数据恢复失败:',
@@ -952,7 +1634,7 @@ function loadData(){
 
 
 /* =========================================================
-   输入时自动保存
+   自动保存
    ========================================================= */
 
 document.addEventListener(
@@ -960,25 +1642,24 @@ document.addEventListener(
     saveData
 );
 
+
 document.addEventListener(
     'change',
     saveData
 );
 
 
-/* =========================================================
-   离开页面 / 切后台时保存
-   ========================================================= */
-
 document.addEventListener(
     'visibilitychange',
     function(){
 
-        if (
+        if(
             document.visibilityState ===
-            'hidden'
-        ) {
+                'hidden'
+        ){
+
             saveData();
+
         }
 
     }
@@ -1003,22 +1684,31 @@ window.addEventListener(
 
 function preview(){
 
-    let old =
+    const old =
         document.getElementById(
             'preview_overlay'
         );
 
-    if (old) {
+
+    if(old){
+
         old.remove();
+
     }
+
 
     saveData();
 
+
     const overlay =
-        document.createElement('div');
+        document.createElement(
+            'div'
+        );
+
 
     overlay.id =
         'preview_overlay';
+
 
     overlay.innerHTML = `
         <div class="preview_box">
@@ -1037,19 +1727,25 @@ function preview(){
 
             </div>
 
-            <pre class="preview_content"></pre>
+            <pre
+                class="preview_content"
+            ></pre>
 
         </div>
     `;
+
 
     document.body.appendChild(
         overlay
     );
 
-    overlay.querySelector(
-        '.preview_content'
-    ).textContent =
-        gen();
+
+    overlay
+        .querySelector(
+            '.preview_content'
+        )
+        .textContent =
+            gen();
 
 }
 
@@ -1065,8 +1761,11 @@ function closePreview(){
             'preview_overlay'
         );
 
-    if (overlay) {
+
+    if(overlay){
+
         overlay.remove();
+
     }
 
 }
@@ -1088,7 +1787,7 @@ function copyOut(){
 
 
 /* =========================================================
-   启动时恢复
+   启动恢复
    ========================================================= */
 
 loadData();
