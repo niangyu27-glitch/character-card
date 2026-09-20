@@ -74,6 +74,13 @@ label{
     margin-bottom:7px
 }
 
+.input_help{
+    margin:6px 0 0;
+    color:#85897d;
+    font-size:12px;
+    line-height:1.6
+}
+
 input,
 textarea{
     width:100%;
@@ -127,10 +134,7 @@ textarea{
     padding:8px 12px
 }
 
-
-/* =========================
-   自定义大条目
-   ========================= */
+/* 自定义大条目 */
 
 .main_entry{
     margin-top:12px;
@@ -192,10 +196,7 @@ textarea{
     padding:9px 13px
 }
 
-
-/* =========================
-   底栏
-   ========================= */
+/* 底栏 */
 
 .bar{
     position:fixed;
@@ -221,10 +222,7 @@ textarea{
     color:white
 }
 
-
-/* =========================
-   预览层
-   ========================= */
+/* 预览层 */
 
 #preview_overlay{
     position:fixed;
@@ -275,10 +273,7 @@ textarea{
     color:#464940
 }
 
-
-/* =========================
-   手机端
-   ========================= */
+/* 手机端 */
 
 @media(max-width:650px){
 
@@ -368,11 +363,11 @@ textarea{
 <div class="field" style="grid-column:1/-1">
 <label>Archetype</label>
 <input id="archetype">
+<p class="input_help">代表原型，通常在这里使用便于 AI 理解的概括性文学形象，比如花花公子、傲娇、魅力型操控者，作为个性代表或补充，和 tag 的效果近似。</p>
 </div>
 
 </div>
 </section>
-
 
 <section class="section">
 <div class="title">身份</div>
@@ -382,850 +377,330 @@ textarea{
 </div>
 </section>
 
-
 <section class="section">
 <div class="title">背景经历</div>
 <div class="body">
-
 <div class="field">
 <label>童年（0-12岁）</label>
 <textarea id="childhood"></textarea>
 </div>
-
 <div class="field">
 <label>少年（13-18岁）</label>
 <textarea id="teen"></textarea>
 </div>
-
 <div class="field">
 <label>青年（19-35岁）</label>
 <textarea id="young"></textarea>
 </div>
-
 <div class="field">
 <label>中年（35-至今）</label>
 <textarea id="middle"></textarea>
 </div>
-
 <div class="field">
 <label>现状</label>
 <textarea id="current"></textarea>
 </div>
-
 </div>
 </section>
 
-
 <section class="section">
-<div class="title">社会地位</div>
+<div class="title">社会关系</div>
 <div class="body">
 <div id="social_status"></div>
 <button class="add" onclick="addList('social_status')">＋ 添加</button>
 </div>
 </section>
 
-
 <section class="section">
 <div class="title">外貌</div>
 <div class="body grid">
-
 <div class="field">
 <label>Hair</label>
 <input id="hair">
 </div>
-
 <div class="field">
 <label>Eyes</label>
 <input id="eyes">
 </div>
-
 <div class="field">
 <label>Skin</label>
 <input id="skin">
 </div>
-
 <div class="field">
 <label>Face Style</label>
 <input id="face_style">
 </div>
-
 <div class="field" style="grid-column:1/-1">
 <label>Build</label>
 <div id="build"></div>
 <button class="add" onclick="addList('build')">＋ 添加</button>
 </div>
-
 </div>
 </section>
-
 
 <section class="section">
 <div class="title">穿着</div>
 <div class="body">
-
 <div class="field">
 <label>Business Formal</label>
 <textarea id="business_formal"></textarea>
 </div>
-
 <div class="field">
 <label>Business Casual</label>
 <textarea id="business_casual"></textarea>
 </div>
-
 <div class="field">
 <label>Casual Wear</label>
 <textarea id="casual_wear"></textarea>
 </div>
-
 <div class="field">
 <label>Home Wear</label>
 <textarea id="home_wear"></textarea>
 </div>
-
 </div>
 </section>
-
 
 <section class="section">
 <div class="title">性格</div>
 <div class="body">
-
 <div class="sub">核心特质</div>
 <div id="core_traits"></div>
 <button class="add" onclick="addPair('core_traits')">＋ 添加</button>
-
 <div class="sub">恋爱特质</div>
 <div id="romantic_traits"></div>
 <button class="add" onclick="addPair('romantic_traits')">＋ 添加</button>
-
 </div>
 </section>
-
 
 <section class="section">
 <div class="title">行为与偏好</div>
 <div class="body">
-
 <div class="sub">生活行为</div>
 <div id="lifestyle"></div>
 <button class="add" onclick="addList('lifestyle')">＋ 添加</button>
-
 <div class="sub">工作行为</div>
 <div id="work"></div>
 <button class="add" onclick="addList('work')">＋ 添加</button>
-
 <div class="sub">情绪行为</div>
-
 <div class="field">
 <label>Angry</label>
 <textarea id="angry"></textarea>
 </div>
-
 <div class="field">
 <label>Happy</label>
 <textarea id="happy"></textarea>
 </div>
-
 <div class="sub">目标</div>
 <div id="goals"></div>
 <button class="add" onclick="addList('goals')">＋ 添加</button>
-
 <div class="sub">弱点</div>
 <div id="weakness"></div>
 <button class="add" onclick="addList('weakness')">＋ 添加</button>
-
 <div class="sub">喜欢</div>
 <div id="likes"></div>
 <button class="add" onclick="addList('likes')">＋ 添加</button>
-
 <div class="sub">不喜欢</div>
 <div id="dislikes"></div>
 <button class="add" onclick="addList('dislikes')">＋ 添加</button>
-
 </div>
 </section>
-
 
 <section class="section">
 <div class="title">技能</div>
 <div class="body">
-
 <div class="sub">工作</div>
 <div id="skill_work"></div>
 <button class="add" onclick="addList('skill_work')">＋ 添加</button>
-
 <div class="sub">生活</div>
 <div id="skill_life"></div>
 <button class="add" onclick="addList('skill_life')">＋ 添加</button>
-
 <div class="sub">爱好</div>
 <div id="skill_hobby"></div>
 <button class="add" onclick="addList('skill_hobby')">＋ 添加</button>
-
 </div>
 </section>
-
 
 <section class="section">
 <div class="title">NSFW Information</div>
 <div class="body">
-
 <div class="field">
 <label>Experiences</label>
 <textarea id="experiences"></textarea>
 </div>
-
 <div class="field">
 <label>Sexual Orientation</label>
 <input id="orientation">
 </div>
-
 <div class="field">
 <label>Sexual Role</label>
 <input id="role">
 </div>
-
 <div class="field">
 <label>Sexual Habits</label>
 <div id="habits"></div>
 <button class="add" onclick="addList('habits')">＋ 添加</button>
 </div>
-
 <div class="field">
 <label>Kinks</label>
 <textarea id="kinks"></textarea>
 </div>
-
 <div class="field">
 <label>Limits</label>
 <textarea id="limits"></textarea>
 </div>
-
 </div>
 </section>
-
-
-<!-- =========================
-     自定义大条目
-     ========================= -->
 
 <section class="section">
 <div class="title">自定义条目</div>
-
 <div class="body">
-
 <div id="custom_entries"></div>
-
-<button
-    class="add_main_entry"
-    onclick="addMainEntry()"
->
-    ＋ 增加条目
-</button>
-
+<button class="add_main_entry" onclick="addMainEntry()">＋ 增加条目</button>
 </div>
 </section>
 
-
 </main>
 </div>
-
 
 <div class="bar">
 <button onclick="preview()">预览</button>
 <button class="primary" onclick="copyOut()">生成并复制</button>
 </div>
 
-
 <script>
-
-/* =========================================================
-   固定列表
-   ========================================================= */
-
 function addList(id){
-
-    const b =
-        document.getElementById(id);
-
-    const r =
-        document.createElement('div');
-
-    r.className =
-        'row';
-
-    r.innerHTML =
-        '<input placeholder="填写内容">' +
-        '<button class="del" onclick="this.parentElement.remove();saveData()">×</button>';
-
+    const b = document.getElementById(id);
+    const r = document.createElement('div');
+    r.className = 'row';
+    r.innerHTML = '<input placeholder="填写内容"><button class="del" onclick="this.parentElement.remove();saveData()">×</button>';
     b.appendChild(r);
-
     saveData();
 }
-
 
 function addPair(id){
-
-    const b =
-        document.getElementById(id);
-
-    const r =
-        document.createElement('div');
-
-    r.className =
-        'row';
-
-    r.innerHTML =
-        '<input placeholder="特质">' +
-        '<input placeholder="描述">' +
-        '<button class="del" onclick="this.parentElement.remove();saveData()">×</button>';
-
+    const b = document.getElementById(id);
+    const r = document.createElement('div');
+    r.className = 'row';
+    r.innerHTML = '<input placeholder="特质"><input placeholder="描述"><button class="del" onclick="this.parentElement.remove();saveData()">×</button>';
     b.appendChild(r);
-
     saveData();
 }
 
-
-/* =========================================================
-   自定义大条目
-   ========================================================= */
-
-function addMainEntry(
-    savedName = '',
-    savedItems = []
-){
-
-    const container =
-        document.getElementById(
-            'custom_entries'
-        );
-
-    const entry =
-        document.createElement('div');
-
-    entry.className =
-        'main_entry';
-
+function addMainEntry(savedName = '', savedItems = []){
+    const container = document.getElementById('custom_entries');
+    const entry = document.createElement('div');
+    entry.className = 'main_entry';
     entry.innerHTML = `
-
         <div class="main_entry_header">
-
-            <input
-                class="main_entry_name"
-                placeholder="大条目名称，例如 character"
-                value=""
-            >
-
-            <button
-                class="main_entry_move"
-                type="button"
-                title="上移"
-            >
-                ↑
-            </button>
-
-            <button
-                class="main_entry_move"
-                type="button"
-                title="下移"
-            >
-                ↓
-            </button>
-
-            <button
-                class="main_entry_delete"
-                type="button"
-            >
-                删除
-            </button>
-
+            <input class="main_entry_name" placeholder="大条目名称，例如 character" value="">
+            <button class="main_entry_move" type="button" title="上移">↑</button>
+            <button class="main_entry_move" type="button" title="下移">↓</button>
+            <button class="main_entry_delete" type="button">删除</button>
         </div>
-
         <div class="main_entry_list"></div>
-
-        <button
-            class="add"
-            type="button"
-        >
-            ＋ 添加
-        </button>
+        <button class="add" type="button">＋ 添加</button>
     `;
-
-
-    const nameInput =
-        entry.querySelector(
-            '.main_entry_name'
-        );
-
-
-    const moveButtons =
-        entry.querySelectorAll(
-            '.main_entry_move'
-        );
-
-
-    const deleteButton =
-        entry.querySelector(
-            '.main_entry_delete'
-        );
-
-
-    const listBox =
-        entry.querySelector(
-            '.main_entry_list'
-        );
-
-
-    const addButton =
-        entry.querySelector(
-            '.add'
-        );
-
-
-    nameInput.value =
-        savedName || '';
-
-
-    /* 上移 */
-
-    moveButtons[0].onclick =
-        function(){
-
-            const previous =
-                entry.previousElementSibling;
-
-            if(previous){
-
-                container.insertBefore(
-                    entry,
-                    previous
-                );
-
-                saveData();
-
-            }
-
-        };
-
-
-    /* 下移 */
-
-    moveButtons[1].onclick =
-        function(){
-
-            const next =
-                entry.nextElementSibling;
-
-            if(next){
-
-                container.insertBefore(
-                    next,
-                    entry
-                );
-
-                saveData();
-
-            }
-
-        };
-
-
-    /* 删除 */
-
-    deleteButton.onclick =
-        function(){
-
-            entry.remove();
-
+    const nameInput = entry.querySelector('.main_entry_name');
+    const moveButtons = entry.querySelectorAll('.main_entry_move');
+    const deleteButton = entry.querySelector('.main_entry_delete');
+    const listBox = entry.querySelector('.main_entry_list');
+    const addButton = entry.querySelector('.add');
+    nameInput.value = savedName || '';
+    moveButtons[0].onclick = function(){
+        const previous = entry.previousElementSibling;
+        if(previous){
+            container.insertBefore(entry, previous);
             saveData();
-
-        };
-
-
-    /* 添加子条目 */
-
-    addButton.onclick =
-        function(){
-
-            addMainItem(
-                listBox
-            );
-
+        }
+    };
+    moveButtons[1].onclick = function(){
+        const next = entry.nextElementSibling;
+        if(next){
+            container.insertBefore(next, entry);
             saveData();
-
-        };
-
-
-    container.appendChild(
-        entry
-    );
-
-
-    /* 恢复已有内容 */
-
-    if(
-        Array.isArray(savedItems) &&
-        savedItems.length
-    ){
-
-        savedItems.forEach(
-            item => {
-
-                addMainItem(
-                    listBox,
-                    item
-                );
-
-            }
-        );
-
+        }
+    };
+    deleteButton.onclick = function(){
+        entry.remove();
+        saveData();
+    };
+    addButton.onclick = function(){
+        addMainItem(listBox);
+        saveData();
+    };
+    container.appendChild(entry);
+    if(Array.isArray(savedItems) && savedItems.length){
+        savedItems.forEach(item => { addMainItem(listBox, item); });
     }else{
-
-        addMainItem(
-            listBox
-        );
-
+        addMainItem(listBox);
     }
-
-
-    nameInput.addEventListener(
-        'input',
-        saveData
-    );
-
-
+    nameInput.addEventListener('input', saveData);
     saveData();
-
 }
 
-
-function addMainItem(
-    container,
-    value = ''
-){
-
-    const row =
-        document.createElement(
-            'div'
-        );
-
-    row.className =
-        'row';
-
-    row.innerHTML =
-        '<input placeholder="填写内容">' +
-        '<button class="del" type="button">×</button>';
-
-
-    const input =
-        row.querySelector(
-            'input'
-        );
-
-
-    const deleteButton =
-        row.querySelector(
-            '.del'
-        );
-
-
-    input.value =
-        value || '';
-
-
-    deleteButton.onclick =
-        function(){
-
-            row.remove();
-
-            saveData();
-
-        };
-
-
-    container.appendChild(
-        row
-    );
-
-
-    input.addEventListener(
-        'input',
-        saveData
-    );
-
+function addMainItem(container, value = ''){
+    const row = document.createElement('div');
+    row.className = 'row';
+    row.innerHTML = '<input placeholder="填写内容"><button class="del" type="button">×</button>';
+    const input = row.querySelector('input');
+    const deleteButton = row.querySelector('.del');
+    input.value = value || '';
+    deleteButton.onclick = function(){
+        row.remove();
+        saveData();
+    };
+    container.appendChild(row);
+    input.addEventListener('input', saveData);
 }
 
-
-/* =========================================================
-   初始化固定项目
-   ========================================================= */
-
 [
-    'identity',
-    'social_status',
-    'build',
-    'lifestyle',
-    'work',
-    'goals',
-    'weakness',
-    'likes',
-    'dislikes',
-    'skill_work',
-    'skill_life',
-    'skill_hobby',
-    'habits'
-].forEach(
-    id => addList(id)
-);
+    'identity','social_status','build','lifestyle','work','goals','weakness','likes','dislikes','skill_work','skill_life','skill_hobby','habits'
+].forEach(id => addList(id));
 
+['core_traits','romantic_traits'].forEach(id => addPair(id));
 
-[
-    'core_traits',
-    'romantic_traits'
-].forEach(
-    id => addPair(id)
-);
+const v = id => document.getElementById(id).value.trim();
 
+const ls = id => [...document.querySelectorAll('#' + id + ' input')].map(x => x.value.trim()).filter(Boolean);
 
-/* =========================================================
-   数据读取
-   ========================================================= */
-
-const v =
-    id =>
-        document
-            .getElementById(id)
-            .value
-            .trim();
-
-
-const ls =
-    id =>
-        [
-            ...document.querySelectorAll(
-                '#' + id + ' input'
-            )
-        ]
-        .map(
-            x => x.value.trim()
-        )
-        .filter(Boolean);
-
-
-const ps =
-    id =>
-        [
-            ...document.querySelectorAll(
-                '#' + id + ' .row'
-            )
-        ]
-        .map(
-            r =>
-                [
-                    ...r.querySelectorAll(
-                        'input'
-                    )
-                ]
-                .map(
-                    x => x.value.trim()
-                )
-        )
-        .filter(
-            x => x[0] || x[1]
-        );
-
-
-/* =========================================================
-   YAML 字符串
-   ========================================================= */
+const ps = id => [...document.querySelectorAll('#' + id + ' .row')].map(r => [...r.querySelectorAll('input')].map(x => x.value.trim())).filter(x => x[0] || x[1]);
 
 function q(s){
-
-    return '"' +
-        String(s)
-            .replaceAll(
-                '\\',
-                '\\\\'
-            )
-            .replaceAll(
-                '"',
-                '\\"'
-            ) +
-        '"';
-
+    return '"' + String(s).replaceAll('\\','\\\\').replaceAll('"','\\"') + '"';
 }
 
-
-function list(
-    n,
-    id,
-    ind = ''
-){
-
-    const a =
-        ls(id);
-
-    return a.length
-        ? n + ':\n' +
-          a
-            .map(
-                x =>
-                    ind +
-                    '  - ' +
-                    x
-            )
-            .join('\n')
-        : n + ':';
-
+function list(n,id,ind=''){
+    const a = ls(id);
+    return a.length ? n + ':\n' + a.map(x => ind + '  - ' + x).join('\n') : n + ':';
 }
 
-
-function pair(
-    n,
-    id,
-    ind = ''
-){
-
-    const a =
-        ps(id);
-
-    return a.length
-        ? n + ':\n' +
-          a
-            .map(
-                x =>
-                    ind +
-                    '  - ' +
-                    x[0] +
-                    ': ' +
-                    q(
-                        x[1] || ''
-                    )
-            )
-            .join('\n')
-        : n + ':';
-
+function pair(n,id,ind=''){
+    const a = ps(id);
+    return a.length ? n + ':\n' + a.map(x => ind + '  - ' + x[0] + ': ' + q(x[1] || '')).join('\n') : n + ':';
 }
-
-
-/* =========================================================
-   自定义大条目
-   ========================================================= */
 
 function customEntries(){
-
-    const entries =
-        [
-            ...document.querySelectorAll(
-                '#custom_entries .main_entry'
-            )
-        ];
-
-
-    return entries
-        .map(
-            entry => {
-
-                const name =
-                    entry
-                        .querySelector(
-                            '.main_entry_name'
-                        )
-                        .value
-                        .trim();
-
-
-                const items =
-                    [
-                        ...entry.querySelectorAll(
-                            '.main_entry_list input'
-                        )
-                    ]
-                    .map(
-                        input =>
-                            input.value.trim()
-                    )
-                    .filter(
-                        Boolean
-                    );
-
-
-                return {
-                    name,
-                    items
-                };
-
-            }
-        )
-        .filter(
-            entry =>
-                entry.name ||
-                entry.items.length
-        );
-
+    const entries = [...document.querySelectorAll('#custom_entries .main_entry')];
+    return entries.map(entry => {
+        const name = entry.querySelector('.main_entry_name').value.trim();
+        const items = [...entry.querySelectorAll('.main_entry_list input')].map(input => input.value.trim()).filter(Boolean);
+        return {name,items};
+    }).filter(entry => entry.name || entry.items.length);
 }
-
 
 function customEntriesYAML(){
-
-    const entries =
-        customEntries();
-
-
-    if(
-        !entries.length
-    ){
-
-        return '';
-
-    }
-
-
-    return entries
-        .map(
-            entry => {
-
-                if(
-                    entry.items.length
-                ){
-
-                    return (
-                        entry.name +
-                        ':\n' +
-                        entry.items
-                            .map(
-                                item =>
-                                    '  - ' +
-                                    item
-                            )
-                            .join('\n')
-                    );
-
-                }
-
-                return (
-                    entry.name +
-                    ':'
-                );
-
-            }
-        )
-        .join('\n\n');
-
+    const entries = customEntries();
+    if(!entries.length) return '';
+    return entries.map(entry => {
+        if(entry.items.length){
+            return entry.name + ':\n' + entry.items.map(item => '  - ' + item).join('\n');
+        }
+        return entry.name + ':';
+    }).join('\n\n');
 }
 
-
-/* =========================================================
-   生成角色卡
-   ========================================================= */
-
 function gen(){
-
-    const custom =
-        customEntriesYAML();
-
-
+    const custom = customEntriesYAML();
     return `char_name: ${v('char_name')}
 Chinese name: ${v('chinese_name')}
 Nickname: ${v('nickname')}
@@ -1287,511 +762,145 @@ NSFW_information:
 ${list('    sexual_habits','habits')}
   Kinks: ${v('kinks')}
   Limits: ${v('limits')}${custom ? '\n\n' + custom : ''}`;
-
 }
 
-
-/* =========================================================
-   自动保存
-   ========================================================= */
-
-const SAVE_KEY =
-    'character_card_editor_data_v1';
-
+const SAVE_KEY = 'character_card_editor_data_v1';
 
 function saveData(){
-
     const data = {};
-
-
-    document
-        .querySelectorAll(
-            'input, textarea'
-        )
-        .forEach(
-            el => {
-
-                if(el.id){
-
-                    data[el.id] =
-                        el.value;
-
-                }
-
-            }
-        );
-
-
+    document.querySelectorAll('input, textarea').forEach(el => {
+        if(el.id){ data[el.id] = el.value; }
+    });
     [
-        'identity',
-        'social_status',
-        'build',
-        'lifestyle',
-        'work',
-        'goals',
-        'weakness',
-        'likes',
-        'dislikes',
-        'skill_work',
-        'skill_life',
-        'skill_hobby',
-        'habits'
-    ].forEach(
-        id => {
-
-            data[id] =
-                [
-                    ...document.querySelectorAll(
-                        '#' + id + ' input'
-                    )
-                ]
-                .map(
-                    input =>
-                        input.value
-                );
-
-        }
-    );
-
-
-    [
-        'core_traits',
-        'romantic_traits'
-    ].forEach(
-        id => {
-
-            data[id] =
-                [
-                    ...document.querySelectorAll(
-                        '#' + id + ' .row'
-                    )
-                ]
-                .map(
-                    row =>
-                        [
-                            ...row.querySelectorAll(
-                                'input'
-                            )
-                        ]
-                        .map(
-                            input =>
-                                input.value
-                        )
-                );
-
-        }
-    );
-
-
-    data.custom_entries =
-        customEntries();
-
-
+        'identity','social_status','build','lifestyle','work','goals','weakness','likes','dislikes','skill_work','skill_life','skill_hobby','habits'
+    ].forEach(id => {
+        data[id] = [...document.querySelectorAll('#' + id + ' input')].map(input => input.value);
+    });
+    ['core_traits','romantic_traits'].forEach(id => {
+        data[id] = [...document.querySelectorAll('#' + id + ' .row')].map(row => [...row.querySelectorAll('input')].map(input => input.value));
+    });
+    data.custom_entries = customEntries();
     try{
-
-        localStorage.setItem(
-            SAVE_KEY,
-            JSON.stringify(
-                data
-            )
-        );
-
+        localStorage.setItem(SAVE_KEY, JSON.stringify(data));
     }catch(e){
-
-        console.error(
-            '角色卡数据保存失败:',
-            e
-        );
-
+        console.error('角色卡数据保存失败:', e);
     }
-
 }
-
-
-/* =========================================================
-   恢复数据
-   ========================================================= */
 
 function loadData(){
-
-    const raw =
-        localStorage.getItem(
-            SAVE_KEY
-        );
-
-
-    if(!raw){
-
-        return;
-
-    }
-
-
+    const raw = localStorage.getItem(SAVE_KEY);
+    if(!raw) return;
     try{
-
-        const data =
-            JSON.parse(
-                raw
-            );
-
-
-        document
-            .querySelectorAll(
-                'input, textarea'
-            )
-            .forEach(
-                el => {
-
-                    if(
-                        el.id &&
-                        Object.prototype.hasOwnProperty.call(
-                            data,
-                            el.id
-                        ) &&
-                        typeof data[el.id] ===
-                            'string'
-                    ){
-
-                        el.value =
-                            data[el.id];
-
-                    }
-
-                }
-            );
-
-
-        [
-            'identity',
-            'social_status',
-            'build',
-            'lifestyle',
-            'work',
-            'goals',
-            'weakness',
-            'likes',
-            'dislikes',
-            'skill_work',
-            'skill_life',
-            'skill_hobby',
-            'habits'
-        ].forEach(
-            id => {
-
-                if(
-                    !Array.isArray(
-                        data[id]
-                    )
-                ){
-
-                    return;
-
-                }
-
-
-                const box =
-                    document.getElementById(
-                        id
-                    );
-
-
-                box.innerHTML =
-                    '';
-
-
-                data[id].forEach(
-                    value => {
-
-                        addList(id);
-
-
-                        const inputs =
-                            box.querySelectorAll(
-                                'input'
-                            );
-
-
-                        inputs[
-                            inputs.length - 1
-                        ].value =
-                            value;
-
-                    }
-                );
-
+        const data = JSON.parse(raw);
+        document.querySelectorAll('input, textarea').forEach(el => {
+            if(el.id && Object.prototype.hasOwnProperty.call(data, el.id) && typeof data[el.id] === 'string'){
+                el.value = data[el.id];
             }
-        );
-
-
+        });
         [
-            'core_traits',
-            'romantic_traits'
-        ].forEach(
-            id => {
-
-                if(
-                    !Array.isArray(
-                        data[id]
-                    )
-                ){
-
-                    return;
-
-                }
-
-
-                const box =
-                    document.getElementById(
-                        id
-                    );
-
-
-                box.innerHTML =
-                    '';
-
-
-                data[id].forEach(
-                    pair => {
-
-                        addPair(id);
-
-
-                        const rows =
-                            box.querySelectorAll(
-                                '.row'
-                            );
-
-
-                        const row =
-                            rows[
-                                rows.length - 1
-                            ];
-
-
-                        const inputs =
-                            row.querySelectorAll(
-                                'input'
-                            );
-
-
-                        inputs[0].value =
-                            pair[0] || '';
-
-
-                        inputs[1].value =
-                            pair[1] || '';
-
-                    }
-                );
-
-            }
-        );
-
-
-        const customContainer =
-            document.getElementById(
-                'custom_entries'
-            );
-
-
-        customContainer.innerHTML =
-            '';
-
-
-        if(
-            Array.isArray(
-                data.custom_entries
-            )
-        ){
-
-            data.custom_entries.forEach(
-                entry => {
-
-                    addMainEntry(
-                        entry.name || '',
-                        Array.isArray(
-                            entry.items
-                        )
-                            ? entry.items
-                            : []
-                    );
-
-                }
-            );
-
+            'identity','social_status','build','lifestyle','work','goals','weakness','likes','dislikes','skill_work','skill_life','skill_hobby','habits'
+        ].forEach(id => {
+            if(!Array.isArray(data[id])) return;
+            const box = document.getElementById(id);
+            box.innerHTML = '';
+            data[id].forEach(value => {
+                addList(id);
+                const inputs = box.querySelectorAll('input');
+                inputs[inputs.length - 1].value = value;
+            });
+        });
+        ['core_traits','romantic_traits'].forEach(id => {
+            if(!Array.isArray(data[id])) return;
+            const box = document.getElementById(id);
+            box.innerHTML = '';
+            data[id].forEach(pair => {
+                addPair(id);
+                const rows = box.querySelectorAll('.row');
+                const row = rows[rows.length - 1];
+                const inputs = row.querySelectorAll('input');
+                inputs[0].value = pair[0] || '';
+                inputs[1].value = pair[1] || '';
+            });
+        });
+        const customContainer = document.getElementById('custom_entries');
+        customContainer.innerHTML = '';
+        if(Array.isArray(data.custom_entries)){
+            data.custom_entries.forEach(entry => {
+                addMainEntry(entry.name || '', Array.isArray(entry.items) ? entry.items : []);
+            });
         }
-
     }catch(e){
-
-        console.error(
-            '角色卡数据恢复失败:',
-            e
-        );
-
+        console.error('角色卡数据恢复失败:', e);
     }
-
 }
 
-
-/* =========================================================
-   自动保存
-   ========================================================= */
-
-document.addEventListener(
-    'input',
-    saveData
-);
-
-
-document.addEventListener(
-    'change',
-    saveData
-);
-
-
-document.addEventListener(
-    'visibilitychange',
-    function(){
-
-        if(
-            document.visibilityState ===
-                'hidden'
-        ){
-
-            saveData();
-
-        }
-
-    }
-);
-
-
-window.addEventListener(
-    'pagehide',
-    saveData
-);
-
-
-window.addEventListener(
-    'beforeunload',
-    saveData
-);
-
-
-/* =========================================================
-   预览
-   ========================================================= */
+document.addEventListener('input', saveData);
+document.addEventListener('change', saveData);
+document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'hidden'){ saveData(); }
+});
+window.addEventListener('pagehide', saveData);
+window.addEventListener('beforeunload', saveData);
 
 function preview(){
-
-    const old =
-        document.getElementById(
-            'preview_overlay'
-        );
-
-
-    if(old){
-
-        old.remove();
-
-    }
-
-
+    const old = document.getElementById('preview_overlay');
+    if(old){ old.remove(); }
     saveData();
-
-
-    const overlay =
-        document.createElement(
-            'div'
-        );
-
-
-    overlay.id =
-        'preview_overlay';
-
-
+    const overlay = document.createElement('div');
+    overlay.id = 'preview_overlay';
     overlay.innerHTML = `
         <div class="preview_box">
-
             <div class="preview_header">
-
                 <span>角色卡预览</span>
-
-                <button
-                    class="preview_close"
-                    onclick="closePreview()"
-                    aria-label="关闭预览"
-                >
-                    ×
-                </button>
-
+                <button class="preview_close" onclick="closePreview()" aria-label="关闭预览">×</button>
             </div>
-
-            <pre
-                class="preview_content"
-            ></pre>
-
+            <pre class="preview_content"></pre>
         </div>
     `;
-
-
-    document.body.appendChild(
-        overlay
-    );
-
-
-    overlay
-        .querySelector(
-            '.preview_content'
-        )
-        .textContent =
-            gen();
-
+    document.body.appendChild(overlay);
+    overlay.querySelector('.preview_content').textContent = gen();
 }
-
-
-/* =========================================================
-   关闭预览
-   ========================================================= */
 
 function closePreview(){
-
-    const overlay =
-        document.getElementById(
-            'preview_overlay'
-        );
-
-
-    if(overlay){
-
-        overlay.remove();
-
-    }
-
+    const overlay = document.getElementById('preview_overlay');
+    if(overlay){ overlay.remove(); }
 }
-
-
-/* =========================================================
-   生成并复制
-   ========================================================= */
 
 function copyOut(){
-
     saveData();
-
-    Android.copyText(
-        gen()
-    );
-
+    if(window.Android && typeof Android.copyText === 'function'){
+        Android.copyText(gen());
+        return;
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(gen()).then(function(){
+            alert('角色卡已复制');
+        }).catch(function(){
+            fallbackCopy(gen());
+        });
+        return;
+    }
+    fallbackCopy(gen());
 }
 
-
-/* =========================================================
-   启动恢复
-   ========================================================= */
+function fallbackCopy(text){
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try{
+        document.execCommand('copy');
+        alert('角色卡已复制');
+    }catch(e){
+        alert('复制失败，请手动复制预览内容');
+    }
+    ta.remove();
+}
 
 loadData();
-
 </script>
 
 </body>
