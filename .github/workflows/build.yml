@@ -1,6 +1,6 @@
 name: 自动打包 APK
 
-on:
+"on":
   workflow_dispatch:
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: "17"
 
       - name: 安装 Android 环境
         uses: android-actions/setup-android@v3
@@ -26,7 +26,7 @@ jobs:
       - name: 安装 Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.7'
+          gradle-version: "8.7"
 
       - name: 编译 APK
         run: gradle assembleDebug
