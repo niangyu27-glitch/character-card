@@ -6,32 +6,40 @@
 <title>角色卡编辑器</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box
+}
+
 body{
     margin:0;
     background:#eeeee8;
     color:#464940;
     font-family:system-ui,"Microsoft YaHei",sans-serif
 }
+
 .app{
     max-width:1000px;
     margin:auto;
     padding-bottom:90px
 }
+
 header{
     padding:22px 20px;
     border-bottom:1px solid #d7d8ce;
     background:#eeeee8
 }
+
 h1{
     margin:0;
     font-size:22px
 }
+
 header p{
     margin:6px 0 0;
     color:#85897d;
     font-size:13px
 }
+
 .section{
     margin:14px 14px 0;
     background:#f8f8f3;
@@ -39,28 +47,35 @@ header p{
     border-radius:16px;
     overflow:hidden
 }
+
 .title{
     padding:15px 17px;
     font-weight:600
 }
+
 .body{
     padding:0 17px 17px
 }
+
 .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:0 14px
 }
+
 .field{
     margin-top:14px
 }
+
 label{
     display:block;
     font-size:13px;
     color:#777b70;
     margin-bottom:7px
 }
-input,textarea{
+
+input,
+textarea{
     width:100%;
     border:1px solid #d5d7cc;
     background:#fffef9;
@@ -70,24 +85,29 @@ input,textarea{
     color:#444;
     outline:none
 }
+
 textarea{
     min-height:80px;
     resize:vertical;
     line-height:1.7
 }
+
 .sub{
     margin:18px 0 6px;
     font-size:14px;
     font-weight:600
 }
+
 .row{
     display:flex;
     gap:8px;
     margin-top:8px
 }
+
 .row input{
     flex:1
 }
+
 .del{
     width:36px;
     border:0;
@@ -96,6 +116,7 @@ textarea{
     color:#777;
     font-size:18px
 }
+
 .add{
     margin-top:9px;
     border:1px dashed #aeb5a5;
@@ -104,6 +125,7 @@ textarea{
     border-radius:9px;
     padding:8px 12px
 }
+
 .bar{
     position:fixed;
     bottom:14px;
@@ -113,24 +135,102 @@ textarea{
     padding:8px;
     border-radius:13px;
     display:flex;
-    gap:8px
+    gap:8px;
+    z-index:100
 }
+
 .bar button{
     border:0;
     border-radius:9px;
     padding:10px 15px
 }
+
 .primary{
     background:#9aa58c;
     color:white
 }
+
+
+/* =========================
+   预览层
+   ========================= */
+
+#preview_overlay{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:#eeeee8;
+    overflow:auto;
+}
+
+.preview_box{
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+}
+
+.preview_header{
+    position:sticky;
+    top:0;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 18px;
+    background:#f8f8f3;
+    border-bottom:1px solid #d9dad0;
+    font-weight:600;
+}
+
+.preview_close{
+    width:36px;
+    height:36px;
+    padding:0;
+    border:0;
+    border-radius:10px;
+    background:#e9e9e1;
+    color:#555;
+    font-size:25px;
+    line-height:36px;
+    text-align:center;
+}
+
+.preview_content{
+    margin:0;
+    padding:20px;
+    white-space:pre-wrap;
+    word-break:break-word;
+    font:14px/1.8 monospace;
+    color:#464940;
+}
+
+
+/* =========================
+   手机端
+   ========================= */
+
 @media(max-width:650px){
+
     .grid{
         grid-template-columns:1fr
     }
+
     .section{
         margin-left:8px;
         margin-right:8px
+    }
+
+    .bar{
+        bottom:10px;
+    }
+
+    .bar button{
+        padding:10px 13px
+    }
+
+    .preview_content{
+        padding:16px;
+        font-size:13px;
     }
 }
 </style>
@@ -189,6 +289,7 @@ textarea{
 </div>
 </section>
 
+
 <section class="section">
 <div class="title">身份</div>
 <div class="body">
@@ -196,6 +297,7 @@ textarea{
 <button class="add" onclick="addList('identity')">＋ 添加身份</button>
 </div>
 </section>
+
 
 <section class="section">
 <div class="title">背景经历</div>
@@ -228,6 +330,7 @@ textarea{
 
 </div>
 </section>
+
 
 <section class="section">
 <div class="title">外貌</div>
@@ -262,6 +365,7 @@ textarea{
 </div>
 </section>
 
+
 <section class="section">
 <div class="title">穿着</div>
 <div class="body">
@@ -289,6 +393,7 @@ textarea{
 </div>
 </section>
 
+
 <section class="section">
 <div class="title">性格</div>
 <div class="body">
@@ -303,6 +408,7 @@ textarea{
 
 </div>
 </section>
+
 
 <section class="section">
 <div class="title">行为与偏好</div>
@@ -347,6 +453,7 @@ textarea{
 </div>
 </section>
 
+
 <section class="section">
 <div class="title">技能</div>
 <div class="body">
@@ -365,6 +472,7 @@ textarea{
 
 </div>
 </section>
+
 
 <section class="section">
 <div class="title">NSFW Information</div>
@@ -407,39 +515,57 @@ textarea{
 </main>
 </div>
 
+
 <div class="bar">
 <button onclick="preview()">预览</button>
 <button class="primary" onclick="copyOut()">生成并复制</button>
 </div>
 
+
 <script>
 
+/* =========================================================
+   动态列表
+   ========================================================= */
+
 function addList(id){
-    let b=document.getElementById(id),
-        r=document.createElement('div');
 
-    r.className='row';
+    let b = document.getElementById(id);
+    let r = document.createElement('div');
 
-    r.innerHTML=
-        '<input placeholder="填写内容">'+
-        '<button class="del" onclick="this.parentElement.remove()">×</button>';
+    r.className = 'row';
+
+    r.innerHTML =
+        '<input placeholder="填写内容">' +
+        '<button class="del" onclick="this.parentElement.remove();saveData()">×</button>';
 
     b.appendChild(r);
+
+    saveData();
 }
+
 
 function addPair(id){
-    let b=document.getElementById(id),
-        r=document.createElement('div');
 
-    r.className='row';
+    let b = document.getElementById(id);
+    let r = document.createElement('div');
 
-    r.innerHTML=
-        '<input placeholder="特质">'+
-        '<input placeholder="描述">'+
-        '<button class="del" onclick="this.parentElement.remove()">×</button>';
+    r.className = 'row';
+
+    r.innerHTML =
+        '<input placeholder="特质">' +
+        '<input placeholder="描述">' +
+        '<button class="del" onclick="this.parentElement.remove();saveData()">×</button>';
 
     b.appendChild(r);
+
+    saveData();
 }
+
+
+/* =========================================================
+   初始化动态项目
+   ========================================================= */
 
 [
     'identity',
@@ -456,53 +582,91 @@ function addPair(id){
     'habits'
 ].forEach(addList);
 
+
 [
     'core_traits',
     'romantic_traits'
 ].forEach(addPair);
 
-const v=id=>
+
+/* =========================================================
+   数据读取
+   ========================================================= */
+
+const v = id =>
     document.getElementById(id).value.trim();
 
-const ls=id=>
-    [...document.querySelectorAll('#'+id+' input')]
-    .map(x=>x.value.trim())
-    .filter(Boolean);
 
-const ps=id=>
-    [...document.querySelectorAll('#'+id+' .row')]
-    .map(r=>
-        [...r.querySelectorAll('input')]
-        .map(x=>x.value.trim())
-    )
-    .filter(x=>x[0]||x[1]);
+const ls = id =>
+    [...document.querySelectorAll('#' + id + ' input')]
+        .map(x => x.value.trim())
+        .filter(Boolean);
+
+
+const ps = id =>
+    [...document.querySelectorAll('#' + id + ' .row')]
+        .map(r =>
+            [...r.querySelectorAll('input')]
+                .map(x => x.value.trim())
+        )
+        .filter(x => x[0] || x[1]);
+
+
+/* =========================================================
+   YAML 字符串处理
+   ========================================================= */
 
 function q(s){
-    return '"'+
+
+    return '"' +
         String(s)
-        .replaceAll('\\','\\\\')
-        .replaceAll('"','\\"')+
+            .replaceAll('\\', '\\\\')
+            .replaceAll('"', '\\"') +
         '"';
+
 }
 
-function list(n,id,ind=''){
-    let a=ls(id);
+
+/* =========================================================
+   列表生成
+   ========================================================= */
+
+function list(n, id, ind = ''){
+
+    let a = ls(id);
 
     return a.length
-        ? n+':\n'+a.map(x=>ind+'  - '+x).join('\n')
-        : n+':';
+        ? n + ':\n' +
+          a.map(x => ind + '  - ' + x).join('\n')
+        : n + ':';
+
 }
 
-function pair(n,id,ind=''){
-    let a=ps(id);
+
+/* =========================================================
+   双字段生成
+   ========================================================= */
+
+function pair(n, id, ind = ''){
+
+    let a = ps(id);
 
     return a.length
-        ? n+':\n'+
-          a.map(x=>
-              ind+'  - '+x[0]+': '+q(x[1]||'')
+        ? n + ':\n' +
+          a.map(x =>
+              ind + '  - ' +
+              x[0] +
+              ': ' +
+              q(x[1] || '')
           ).join('\n')
-        : n+':';
+        : n + ':';
+
 }
+
+
+/* =========================================================
+   生成角色卡
+   ========================================================= */
 
 function gen(){
 
@@ -568,24 +732,363 @@ ${list('    sexual_habits','habits')}
 
 }
 
+
+/* =========================================================
+   自动保存
+   ========================================================= */
+
+const SAVE_KEY = 'character_card_editor_data_v1';
+
+
+function saveData(){
+
+    const data = {};
+
+    /* 普通输入框与文本框 */
+    document.querySelectorAll('input, textarea').forEach(el => {
+
+        if (el.id) {
+            data[el.id] = el.value;
+        }
+
+    });
+
+
+    /* 动态单字段列表 */
+    [
+        'identity',
+        'build',
+        'lifestyle',
+        'work',
+        'goals',
+        'weakness',
+        'likes',
+        'dislikes',
+        'skill_work',
+        'skill_life',
+        'skill_hobby',
+        'habits'
+    ].forEach(id => {
+
+        data[id] = [
+            ...document.querySelectorAll('#' + id + ' input')
+        ].map(input => input.value);
+
+    });
+
+
+    /* 动态双字段列表 */
+    [
+        'core_traits',
+        'romantic_traits'
+    ].forEach(id => {
+
+        data[id] = [
+            ...document.querySelectorAll('#' + id + ' .row')
+        ].map(row =>
+            [...row.querySelectorAll('input')]
+                .map(input => input.value)
+        );
+
+    });
+
+
+    try {
+
+        localStorage.setItem(
+            SAVE_KEY,
+            JSON.stringify(data)
+        );
+
+    } catch (e) {
+
+        console.error(
+            '角色卡数据保存失败:',
+            e
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   恢复数据
+   ========================================================= */
+
+function loadData(){
+
+    const raw =
+        localStorage.getItem(SAVE_KEY);
+
+    if (!raw) {
+        return;
+    }
+
+
+    try {
+
+        const data =
+            JSON.parse(raw);
+
+
+        /* 普通输入框 */
+        document.querySelectorAll(
+            'input, textarea'
+        ).forEach(el => {
+
+            if (
+                el.id &&
+                Object.prototype.hasOwnProperty.call(
+                    data,
+                    el.id
+                ) &&
+                typeof data[el.id] === 'string'
+            ) {
+
+                el.value = data[el.id];
+
+            }
+
+        });
+
+
+        /* 单字段动态列表 */
+        [
+            'identity',
+            'build',
+            'lifestyle',
+            'work',
+            'goals',
+            'weakness',
+            'likes',
+            'dislikes',
+            'skill_work',
+            'skill_life',
+            'skill_hobby',
+            'habits'
+        ].forEach(id => {
+
+            if (!Array.isArray(data[id])) {
+                return;
+            }
+
+            const box =
+                document.getElementById(id);
+
+            box.innerHTML = '';
+
+            data[id].forEach(value => {
+
+                addList(id);
+
+                const inputs =
+                    box.querySelectorAll('input');
+
+                inputs[inputs.length - 1].value =
+                    value;
+
+            });
+
+        });
+
+
+        /* 双字段动态列表 */
+        [
+            'core_traits',
+            'romantic_traits'
+        ].forEach(id => {
+
+            if (!Array.isArray(data[id])) {
+                return;
+            }
+
+            const box =
+                document.getElementById(id);
+
+            box.innerHTML = '';
+
+            data[id].forEach(pair => {
+
+                addPair(id);
+
+                const rows =
+                    box.querySelectorAll('.row');
+
+                const row =
+                    rows[rows.length - 1];
+
+                const inputs =
+                    row.querySelectorAll('input');
+
+                inputs[0].value =
+                    pair[0] || '';
+
+                inputs[1].value =
+                    pair[1] || '';
+
+            });
+
+        });
+
+    } catch (e) {
+
+        console.error(
+            '角色卡数据恢复失败:',
+            e
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   输入时自动保存
+   ========================================================= */
+
+document.addEventListener(
+    'input',
+    saveData
+);
+
+document.addEventListener(
+    'change',
+    saveData
+);
+
+
+/* =========================================================
+   离开页面 / 切后台时保存
+   ========================================================= */
+
+document.addEventListener(
+    'visibilitychange',
+    function(){
+
+        if (
+            document.visibilityState ===
+            'hidden'
+        ) {
+            saveData();
+        }
+
+    }
+);
+
+
+window.addEventListener(
+    'pagehide',
+    saveData
+);
+
+
+window.addEventListener(
+    'beforeunload',
+    saveData
+);
+
+
+/* =========================================================
+   预览
+   ========================================================= */
+
 function preview(){
 
-    let w=window.open('','_blank');
+    let old =
+        document.getElementById(
+            'preview_overlay'
+        );
 
-    w.document.write(
-        '<pre style="white-space:pre-wrap;font:14px monospace;padding:20px">'+
-        gen()
-        .replaceAll('&','&amp;')
-        .replaceAll('<','&lt;')+
-        '</pre>'
+    if (old) {
+        old.remove();
+    }
+
+
+    saveData();
+
+
+    const overlay =
+        document.createElement('div');
+
+    overlay.id =
+        'preview_overlay';
+
+
+    overlay.innerHTML = `
+        <div class="preview_box">
+
+            <div class="preview_header">
+
+                <span>角色卡预览</span>
+
+                <button
+                    class="preview_close"
+                    onclick="closePreview()"
+                    aria-label="关闭预览"
+                >
+                    ×
+                </button>
+
+            </div>
+
+            <pre class="preview_content"></pre>
+
+        </div>
+    `;
+
+
+    document.body.appendChild(
+        overlay
     );
+
+
+    overlay.querySelector(
+        '.preview_content'
+    ).textContent =
+        gen();
+
 }
+
+
+/* =========================================================
+   关闭预览
+   ========================================================= */
+
+function closePreview(){
+
+    const overlay =
+        document.getElementById(
+            'preview_overlay'
+        );
+
+    if (overlay) {
+        overlay.remove();
+    }
+
+}
+
+
+/* =========================================================
+   生成并复制
+   ========================================================= */
 
 function copyOut(){
 
-    Android.copyText(gen());
+    saveData();
+
+    Android.copyText(
+        gen()
+    );
 
 }
+
+
+/* =========================================================
+   启动时恢复
+   ========================================================= */
+
+loadData();
 
 </script>
 
