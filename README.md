@@ -29,3 +29,6 @@ app/src/main/assets/preview.html
 Android 原生数据库
 桌面小组件
 系统级设置
+
+
+Preview9月21改的代码是错的，9月20日最后那个是对的
